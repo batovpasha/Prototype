@@ -1,13 +1,16 @@
 'use strict';
 
-class Rect {
-  toString() {
-    return `[${this.x}, ${this.y}, ${this.width}, ${this.height}]`;
-  }
+function Rect(x, y, width, height) {
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height = height;
 }
 
-const p1 = { x: 10, y: 20, width: 50, height: 50 };
-Object.setPrototypeOf(p1, Rect.prototype);
-//p1.__proto__ = Rect.prototype;
+Rect.prototype.toString = function() {
+  return `[${this.x}, ${this.y}, ${this.width}, ${this.height}]`;
+};
+
+const p1 = new Rect(10, 20, 50, 50);
 
 console.log(p1.toString());
